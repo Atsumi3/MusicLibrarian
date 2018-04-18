@@ -1,0 +1,52 @@
+{
+  "pans":[
+    {
+      "rank": 1,
+      "name": "サークル"
+    },
+    {
+      "rank": 2,
+      "name": "D"
+    },
+    {
+      "rank": 3,
+      "name": "dummy circle"
+    }
+  ],
+  "id": 1,
+  "title": "ダミーディスク",
+  "releasedAt": "2008/05/25",
+  "info": [
+    {
+      "key": "circle",
+      "name": "サークル",
+      "value": "dummy circle"
+    },
+    {
+      "key": "event",
+      "name": "イベント",
+      "value": "Dorayaki Fest"
+    }
+  ],
+  "jacketUrl": "http://example.com/image/jacket/1",
+  "tracks": [
+    {
+      "idx": 1,
+      "title": "あいうえお",
+      "artists": [
+        "Tanaka"
+      ],
+      "original": []
+    },
+    {
+      "idx": 2,
+      "title": "あいうえお 〜 Arrange",
+      "artists": [
+        "Tanaka"
+      ],
+      "original": [
+        "あいうえお"
+      ]
+    }
+  ]
+}

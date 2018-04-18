@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf8">
+    <title th:text="${viewModel.getTitle()}" />
+    <link href="/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+    <p>
+        <span th:each="pan: ${viewModel.getPans()}">
+            <a href="/" th:href="@{'/?'(router=${'search'},path=${pan.getName()})}" th:text="${pan.getName()}"></a> &gt;
+        </span>
+    </p>
+</nav>
+<section style="display: flex; justify-content: space-around;">
+    <div class="grad-white">
+        <img th:src="${viewModel.getJacketUrl()}" />
+    </div>
+    <div>
+        <h1 th:text="${viewModel.getTitle()}" />
+        <dl th:each="info: ${viewModel.getInfo()}">
+            <dt th:text="${info.getName()}" />
+            <dd><a th:href="@{'/?'(router=${'search'},path=${info.getKey() + '/' + info.getValue()})}" th:text="${info.getValue()}" /></dd>
+        </dl>
+    </div>
+</section>
+<div style="margin-top: 64px">
+    <table>
+        <thead>
+        <tr>
+            <th width="10%">トラック</th>
+            <th width="40%">曲名</th>
+            <th width="20%">アーティスト, ボーカル</th>
+            <th width="30%">原曲</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="track: ${viewModel.getTracks()}">
+            <td th:text="${track.getIdx()}" />
+            <td th:text="${track.getTitle()}" />
+            <td>
+                <span th:each="artist: ${track.getArtists()}">
+                    <a href="/" th:href="@{'/?'(router=${'search'},path=${'artist/' + artist})}" th:text="${artist}" />,&nbsp;
+                </span>
+            </td>
+            <td>
+                <span th:each="original: ${track.getOriginal()}">
+                    <a href="/" th:href="@{'/?'(router=${'search'},path=${'original/' + original})}" th:text="${original}" />,&nbsp;
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
